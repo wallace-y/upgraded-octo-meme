@@ -1,14 +1,22 @@
 const connection = require("../db/connection.js");
+const { selectTaxYearById } = require("../models/models.js");
 
 function getTaxYears(req, res, next) {
-  console.log("In the controller");
   return connection
     .query(`SELECT * FROM tax_years;`)
-    .then(({rows} ) => {
-      console.log(rows);
+    .then(({ rows }) => {
       res.status(200).send(rows);
     })
     .catch(next);
 }
 
-module.exports = { getTaxYears };
+function getTaxYearById(req, res, next) {
+  const { tax_year_id } = req.params;
+  selectTaxYearById(tax_year_id)
+    .then((tax_year) => {
+      res.status(200).send({ tax_year });
+    })
+    .catch(next);
+}
+
+module.exports = { getTaxYears, getTaxYearById };

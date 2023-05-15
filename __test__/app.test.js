@@ -41,3 +41,49 @@ describe("GET /api/taxYears", () => {
       });
   });
 });
+
+describe("GET /api/taxYears/:id - get review by ID", () => {
+  it("returns a status code of 200", () => {
+    return request(app).get("/api/taxYears/1").expect(200);
+  });
+  it("is correctly formatted as JSON", () => {
+    return request(app)
+      .get("/api/taxYears/1")
+      .expect("Content-Type", "application/json; charset=utf-8");
+  });
+  it("Response has the correct properties", () => {
+    return request(app)
+      .get("/api/taxYears/1")
+      .then((res) => {
+        const tax_year = res.body.tax_year;
+        expect(tax_year).toEqual(expect.objectContaining({}));
+      });
+  });
+  it("Status 400, bad request - invalid ID", () => {
+    return request(app)
+      .get("/api/taxYears/bananas")
+      .expect(400)
+      .then((res) => {
+        expect(res.body.msg).toBe("Bad request.");
+      });
+  });
+  it("Status 404, resource not found - invalid ID", () => {
+    return request(app)
+      .get("/api/taxYear/999999")
+      .expect(404)
+      .then((res) => {
+        expect(res.body.msg).toBe("Resource not found.");
+      });
+  });
+});
+
+describe("Not found tests", () => {
+  it("Status: 404, responds with an error message when passed an invalid path", () => {
+    return request(app)
+      .get("/api/notAnEndpoint")
+      .expect(404)
+      .then((res) => {
+        expect(res.body.msg).toBe("Resource not found.");
+      });
+  });
+});
