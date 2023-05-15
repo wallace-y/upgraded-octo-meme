@@ -116,7 +116,6 @@ const seed = ({ taxTables, ratesOfIncomeTax }) => {
     .then(({ rows: taxTableRows }) => {
       const taxYearIdLookup = createRef(taxTableRows, "tax_year", "id");
       const formattedRatesData = formatRates(ratesOfIncomeTax, taxYearIdLookup);
-      console.log(formattedRatesData);
 
       const insertRatesQueryStr = format(
         `INSERT INTO rates_of_income_tax (            
