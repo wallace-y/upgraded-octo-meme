@@ -167,7 +167,7 @@ const seed = ({ taxTables, ratesOfIncomeTax }) => {
       return db.query(insertRatesQueryStr);
     })
     .then((result) => {
-      console.log(result);
+      // console.log(result);
     });
 };
 
