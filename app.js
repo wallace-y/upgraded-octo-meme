@@ -18,7 +18,7 @@ apiRouter.use("/taxYears", taxYearRouter);
 
 //handling 404 errors - no available endpoint
 app.use("/api/*", (req, res) => {
-  res.status(404).send({ msg: "Page not found." });
+  res.status(404).send({ msg: "Resource not found." });
 });
 
 //handling 500 errors
@@ -40,7 +40,7 @@ app.use((err, req, res, next) => {
   else {
     res.status(500).send({ msg: "Internal Server Error" });
   }
-  // console.log(err)
+  console.log(err)
 });
 
 module.exports = app;
