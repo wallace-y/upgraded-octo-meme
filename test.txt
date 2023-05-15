@@ -1,0 +1,8 @@
+You are now connected to database "tax_tables" as user "cam".
+ id | tax_year_id | lower_rate_band | lower_rate_band_tax | starting_rate_band | starting_rate_band_tax | basic_rate_band | basic_rate_band_tax | higher_rate_band | higher_rate_band_tax | additional_rate_band | additional_rate_band_tax | savings_rate_band | savings_rate_band_tax 
+----+-------------+-----------------+---------------------+--------------------+------------------------+-----------------+---------------------+------------------+----------------------+----------------------+--------------------------+-------------------+-----------------------
+  1 |           1 |               0 |                   0 |                  0 |                      0 |           20700 |                  25 |                0 |                   40 |                    0 |                        0 |                 0 |                     0
+  2 |           2 |               0 |                   0 |                  0 |                      0 |           23700 |                  25 |                0 |                   40 |                    0 |                        0 |                 0 |                     0
+  3 |           3 |            2000 |                  20 |                  0 |                      0 |           23700 |                  25 |                0 |                   40 |                    0 |                        0 |                 0 |                     0
+(3 rows)
+

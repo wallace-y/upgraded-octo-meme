@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "seed": "node ./db/seeds/run-seed.js",
     "start": "node ./bin/www",
     "prepare": "husky install",
     "test": "jest"
@@ -10,8 +12,11 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "pg": "^8.10.0",
+    "pg-format": "^1.0.4"
   },
   "devDependencies": {
     "husky": "^8.0.3",
